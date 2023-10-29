@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,26 +9,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "./UserAvatar";
+import { Session } from "next-auth";
+import { Button } from "./ui/button";
+import { signIn, signOut } from "next-auth/react";
 
-function UserButton() {
-  // Session...
+function UserButton({ session }: { session: Session | null }) {
+  // Subscription listener...
+  if (!session)
+    return (
+      <Button variant={"outline"} onClick={() => signIn()}>
+        Sign In
+      </Button>
+    );
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <UserAvatar
-          image="https://github.com/shadcn.png"
-          name="Wiktor Wielgusiak"
-        />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    session && (
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <UserAvatar image={session.user?.image} name={session.user?.name} />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => signOut()}>
+            Sign Out
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    )
   );
 }
 
