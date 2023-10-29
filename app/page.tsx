@@ -30,7 +30,7 @@ export default function Home() {
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
                 You speak your language, they speak their language.
-                <span className="text-indigo-600 dark:text-indigo-500">
+                <span className="text-indigo-600 ml-1 dark:text-indigo-500">
                   Let AI handle the translation.
                 </span>
               </p>
