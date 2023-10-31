@@ -4,6 +4,7 @@ import { db } from "@/firebase";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 function CheckoutButton() {
   const { data: session } = useSession();
@@ -42,7 +43,7 @@ function CheckoutButton() {
     // redirect user to checkout page
   };
   return (
-    <div>
+    <div className="flex flex-col space-y-2">
       {/* If subscribed show me the user is subscribed */}
 
       <button
@@ -51,7 +52,7 @@ function CheckoutButton() {
       text-white shadow-sm hover:bg-indigo-500 focus:visible:outline focus:visible:outline-2 focus:visible:outline-offset-2 
       focus:visible:outline-indigo-600 cursor-pointer disabled:opacity-80 disabled:bg-indigo-600/50 disabled:text-white"
       >
-        {loading ? "loading..." : "Sign Up"}
+        {loading ? <LoadingSpinner /> : "Sign Up"}
       </button>
     </div>
   );
