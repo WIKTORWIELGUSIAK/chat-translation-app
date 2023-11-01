@@ -53,7 +53,7 @@ const messageConverter: FirestoreDataConverter<Message> = {
 };
 
 export const messageRef = (chatId: string) =>
-  collection(db, "chats", chatId, "members").withConverter(messageConverter);
+  collection(db, "chats", chatId, "messages").withConverter(messageConverter);
 
 export const limitedMessagesRef = (chatId: string) =>
   query(messageRef(chatId), limit(25));
