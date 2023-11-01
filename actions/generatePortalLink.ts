@@ -32,13 +32,11 @@ export async function generatePortalLink() {
     return console.error("No customer record found with userId: ", id);
 
   const stripeId = doc.data()!.stripeId;
-  console.log(stripeId);
 
   const stripeSession = await stripe.billingPortal.sessions.create({
     customer: stripeId,
     return_url: returnUrl,
   });
-  console.log(stripeSession.url);
 
   redirect(stripeSession.url);
 }

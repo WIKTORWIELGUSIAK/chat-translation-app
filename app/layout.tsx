@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ClientProviders from "@/components/ClientProviders";
 import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
 import SubscriptionProvider from "@/components/SubscriptionProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Wi-Chat",
@@ -30,10 +30,11 @@ export default function RootLayout({
                 disableTransitionOnChange
               >
                 <Header />
+                {children}
+                <Toaster />
               </ThemeProvider>
             </SubscriptionProvider>
           </FirebaseAuthProvider>
-          {children}
         </body>
       </html>
     </ClientProviders>
