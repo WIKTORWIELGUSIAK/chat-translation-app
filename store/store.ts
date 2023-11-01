@@ -15,6 +15,20 @@ export type LanguagesSupported =
   | "ar"
   | "pl";
 
+interface LanguageState {
+  language: LanguagesSupported;
+  setLanguage: (language: LanguagesSupported) => void;
+  getLanguages: (isPro: boolean) => LanguagesSupported[];
+  getNotSupportedLanguages: (isPro: boolean) => LanguagesSupported[];
+}
+
+interface SubscriptionState {
+  subscription: Subscription | null | undefined;
+  setSubscription: (subscription: Subscription | null) => void;
+}
+
+const LANGUAGES_IN_FREE = 2;
+
 export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
   en: "English",
   de: "German",
@@ -28,11 +42,24 @@ export const LanguagesSupportedMap: Record<LanguagesSupported, string> = {
   ar: "Arabic",
   pl: "Polish",
 };
-
-interface SubscriptionState {
-  subscription: Subscription | null | undefined;
-  setSubscription: (subscription: Subscription | null) => void;
-}
+export const useLanguagesStore = create<LanguageState>()((set, get) => ({
+  language: "en",
+  setLanguage: (language: LanguagesSupported) => set({ language }),
+  getLanguages: (isPro: boolean) => {
+    if (isPro)
+      return Object.keys(LanguagesSupportedMap) as LanguagesSupported[];
+    return Object.keys(LanguagesSupportedMap).slice(
+      0,
+      LANGUAGES_IN_FREE
+    ) as LanguagesSupported[];
+  },
+  getNotSupportedLanguages: (isPro: boolean) => {
+    if (isPro) return [];
+    return Object.keys(LanguagesSupportedMap).slice(
+      LANGUAGES_IN_FREE
+    ) as LanguagesSupported[];
+  },
+}));
 
 export const useSubscriptionStore = create<SubscriptionState>((set) => ({
   subscription: undefined,

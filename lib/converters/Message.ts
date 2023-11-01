@@ -6,12 +6,9 @@ import {
   QueryDocumentSnapshot,
   SnapshotOptions,
   collection,
-  collectionGroup,
-  doc,
   limit,
   orderBy,
   query,
-  where,
 } from "firebase/firestore";
 
 export interface User {

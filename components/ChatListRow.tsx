@@ -6,11 +6,13 @@ import { Message, limitedSortedMessagesRef } from "@/lib/converters/Message";
 import { useSession } from "next-auth/react";
 import UserAvatar from "./UserAvatar";
 import { useRouter } from "next/navigation";
+import { useLanguagesStore } from "@/store/store";
 
 function ChatListRow({ chatId }: { chatId: string }) {
   const [messages, loading, error] = useCollectionData<Message>(
     limitedSortedMessagesRef(chatId)
   );
+  const language = useLanguagesStore((state) => state.language);
   const { data: session } = useSession();
   const router = useRouter();
 
@@ -37,7 +39,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
         </p>
 
         <p className="text-gray-400 line-clamp-1">
-          {message?.translated?.["en"] || "Get the conversation started..."}
+          {message?.translated?.[language] || "Get the conversation started..."}
         </p>
       </div>
 
@@ -47,7 +49,7 @@ function ChatListRow({ chatId }: { chatId: string }) {
             ? new Date(message.timestamp).toLocaleTimeString()
             : "No messages yet"}
         </p>
-        <p className="chat">#prettyUUID()</p>
+        <p className="chat">#{prettyUUID()}</p>
       </div>
     </div>
   );
