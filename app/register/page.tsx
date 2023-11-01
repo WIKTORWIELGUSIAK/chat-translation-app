@@ -5,13 +5,10 @@ import { getServerSession } from "next-auth";
 
 async function Register() {
   const session = await getServerSession(authOptions);
-  console.log(session);
   if (!session?.user.id) return console.error("No user Id found");
   const {
     user: { id },
   } = session;
-  const doc = await adminDb.collection("customers").doc(id).get();
-  console.log(doc.data()?.stripeId);
 
   return (
     <div className="isolate h-full overflow-hidden bg-gray-900 pb-40">

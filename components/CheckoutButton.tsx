@@ -19,7 +19,6 @@ function CheckoutButton() {
     subscription?.status === "active" && subscription?.role === "pro";
 
   const createCheckoutSession = async () => {
-    console.log("here");
     if (!session?.user.id) return;
     // push a document into firestore db
     setLoading(true);
@@ -35,7 +34,6 @@ function CheckoutButton() {
     // ...stripe extension on firebase will create a checkout session
     return onSnapshot(docRef, (snap) => {
       const data = snap.data();
-      console.log(data);
       const url = data?.url;
       const error = data?.error;
 
