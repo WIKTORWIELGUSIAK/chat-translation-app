@@ -1,5 +1,6 @@
 import { authOptions } from "@/auth";
 import ChatInput from "@/components/ChatInput";
+import ChatMembersBadge from "@/components/ChatMembersBadge";
 import ChatMessages from "@/components/ChatMessages";
 import { sortedMessagesRef } from "@/lib/converters/Message";
 import { getDocs } from "firebase/firestore";
@@ -17,7 +18,7 @@ async function ChatPage({ params: { chatId } }: Props) {
   return (
     <>
       {/* Admin Controls */}
-      {/* ChatMembersBadge */}
+      <ChatMembersBadge chatId={chatId} />
 
       <div className="flex-1">
         <ChatMessages
