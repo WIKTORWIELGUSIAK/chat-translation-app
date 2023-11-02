@@ -47,7 +47,7 @@ function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
           className: "bg-green-600 text white",
           duration: 2000,
         });
-        router.push(`/chat/${"chatId"}`);
+        router.push(`/chat/${chatId}`);
       })
       .catch((error) => {
         toast({
