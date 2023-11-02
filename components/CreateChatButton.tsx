@@ -53,6 +53,7 @@ function CreateChatButton({ isLarge }: { isLarge?: boolean }) {
           </ToastAction>
         ),
       });
+      return;
     }
 
     await setDoc(addChatRef(chatId, session.user.id), {
