@@ -1,3 +1,5 @@
+"use client";
+
 import { chatMemberAdminRef } from "@/lib/converters/ChatMembers";
 import { getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -12,6 +14,7 @@ function useAdminId({ chatId }: { chatId: string }) {
       )[0];
       setAdminId(adminId);
     };
+    fetchAdminStatus();
   }, [chatId]);
 
   return adminId;
