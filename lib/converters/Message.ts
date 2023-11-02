@@ -49,14 +49,14 @@ const messageConverter: FirestoreDataConverter<Message> = {
   },
 };
 
-export const messageRef = (chatId: string) =>
+export const messagesRef = (chatId: string) =>
   collection(db, "chats", chatId, "messages").withConverter(messageConverter);
 
 export const limitedMessagesRef = (chatId: string) =>
-  query(messageRef(chatId), limit(25));
+  query(messagesRef(chatId), limit(25));
 
 export const sortedMessagesRef = (chatId: string) =>
-  query(messageRef(chatId), orderBy("timestamp", "asc"));
+  query(messagesRef(chatId), orderBy("timestamp", "asc"));
 
 export const limitedSortedMessagesRef = (chatId: string) =>
-  query(query(messageRef(chatId), limit(1)), orderBy("timestamp", "desc"));
+  query(query(messagesRef(chatId), limit(1)), orderBy("timestamp", "desc"));
