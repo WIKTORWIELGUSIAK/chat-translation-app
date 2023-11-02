@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌍 Wi-Chat - Twoja brama do komunikacji międzykulturowej
 
-## Getting Started
+> Wi-Chat to rewolucyjna aplikacja komunikacyjna, która przenosi rozmowy międzykulturowe na wyższy poziom. Dzięki tłumaczeniu w czasie rzeczywistym użytkownicy mogą łatwo i swobodnie komunikować się z osobami mówiącymi w innych językach, usuwając bariery językowe i zbliżając ludzi z różnych stron świata.
 
-First, run the development server:
+## ✨ Główne cechy
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Tłumaczenie w czasie rzeczywistym**:
+  - Niezależnie od wybranego języka, Wi-Chat oferuje natychmiastowe tłumaczenie, aby rozmowy były płynne i zrozumiałe dla obu stron.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Wybór spośród 10 języków**: 
+  - Aplikacja obsługuje 10 kluczowych języków, zapewniając szeroki zakres komunikacji międzynarodowej.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Ekskluzywne funkcje dla użytkowników premium**: 
+  - Użytkownicy z pakietem "pro" mają dostęp do dodatkowych funkcji i narzędzi, które wzbogacą ich doświadczenie w korzystaniu z aplikacji.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Zintegrowany system płatności Stripe**: 
+  - Bezpieczne i wygodne transakcje gwarantowane dzięki integracji z jednym z najbardziej zaufanych systemów płatności.
 
-## Learn More
+## 🔧 Technologie
 
-To learn more about Next.js, take a look at the following resources:
+Wi-Chat został zaprojektowany i zbudowany z wykorzystaniem najnowszej wersji **Next.js 13**. Aplikacja korzysta głównie z bibliotek:
+- `shadcn`
+- `tailwind css`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dodatkowo, aplikacja została wzbogacona o następujące technologie i narzędzia:
+- **Firebase**: Dla autentykacji, przechowywania danych i real-time updates.
+- **OAuth**: Pozwalający na łatwe i bezpieczne logowanie się użytkowników.
+- **Stripe**: Dla obsługi płatności.
+- **Firestore**: Jako główna baza danych aplikacji.
+  
+## 💼 Funkcje premium
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Po zakupie pakietu premium "pro", użytkownicy uzyskują dostęp do ekskluzywnych funkcji, które wzbogacą ich komunikację i doświadczenie z aplikacją.
 
-## Deploy on Vercel
+## 💳 Testowanie płatności Stripe
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Aby przetestować funkcjonalność płatności w Wi-Chat, użyj poniższych danych testowej karty:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Email**: `test@test.com` (dowolne)
+
+### Informacje o karcie:
+
+- **Nr. karty**: `4242 4242 4242 4242`
+- **Data ważności**: `04/24`
+- **Kod CVC**: `424`
+- **Imię i nazwisko posiadacza karty**: `Test Test` (dowolne)
+
+### Adres rozliczeniowy (Dowolne rzeczywiste):
+
+- **Kraj**: `Polska`
+- **Adres**: `Adama Mickiewicza 42`
+- **Kod pocztowy**: `15-225`
+- **Miasto**: `Białystok`
+
+> ⚠️ Uwaga: Te dane są przeznaczone wyłącznie do celów testowych i nie można za ich pomocą dokonywać rzeczywistych transakcji.
+
