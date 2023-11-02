@@ -28,7 +28,7 @@ function SubscriptionProvider({ children }: { children: React.ReactNode }) {
       (error) => {}
     );
   }, [session, setSubscription]);
-  return <div>{children}</div>;
+  return <>{children}</>;
 }
 
 export default SubscriptionProvider;
