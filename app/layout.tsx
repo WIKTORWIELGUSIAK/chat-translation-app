@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <ClientProviders>
       <html lang="en">
-        <FirebaseAuthProvider>
-          <SubscriptionProvider>
-            <body className="flex flex-col min-h-screen">
+        <body className="flex flex-col min-h-screen">
+          <FirebaseAuthProvider>
+            <SubscriptionProvider>
               <ThemeProvider
                 attribute="class"
                 defaultTheme="system"
@@ -33,9 +33,9 @@ export default function RootLayout({
                 {children}
                 <Toaster />
               </ThemeProvider>
-            </body>
-          </SubscriptionProvider>
-        </FirebaseAuthProvider>
+            </SubscriptionProvider>
+          </FirebaseAuthProvider>
+        </body>
       </html>
     </ClientProviders>
   );
